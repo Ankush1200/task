@@ -1,0 +1,18 @@
+1. Issues(Why Count variable get resets when someone scrolls the page):-
+    ListView.builder reuses widgets
+    when they scroll in and out of view, which improves speed. This implies that anytime your ListItemWidget
+    scrolls in and out of view, it is rebuilt and its state, represented by the count variable, is reset.
+
+2. Solution(To hold the stateof the count variable when someone scrolls the page or not):- 
+    To persist the state of each ListItemWidget, you should consider storing the count values outside of the 
+    widget itself, such as in a list or a state management solution (e.g., Provider, Riverpod, etc.). 
+   
+3. Changes that have perform in order to Change the file:- 
+    final List<int> countsList: Declares a final (immutable) list of integers named countsList.
+    List<int>.generate(100, (index) => 0): Uses the generate constructor of the List class to
+    create a list with 100 elements. 
+    
+    The generate function takes two arguments: The first argument (100) is the length of the list. The
+    second argument is a function that takes an integer index and returns the value for that position 
+    in the list. In this case, the function (index) => 0 returns 0 for every index, initializing all 100 
+    elements of the list to 0.
